@@ -9,6 +9,8 @@ from playwright.sync_api import Playwright, sync_playwright, Page
 
 SLEEP_BETWEEN_PAGES_S = 10
 BASE_URL = "https://www.elibrary.ru"
+LOGIN = ""
+PASSWORD = ""
 
 
 @dataclass
@@ -30,12 +32,12 @@ def try_or_none(callback: Callable) -> Any | None:
 def login(page: Page):
     page.goto(BASE_URL)
     page.locator("#login").click()
-    page.locator("#login").fill("crawlic")
+    page.locator("#login").fill(LOGIN)
     page.get_by_role(
         "cell", name="Имя пользователя  или адрес эл. почты:", exact=True
     ).click()
     page.locator("#password").click()
-    page.locator("#password").fill("Lolopopok1")
+    page.locator("#password").fill(PASSWORD)
     page.get_by_role("checkbox").check()
     page.get_by_text("Вход", exact=True).click()
 
