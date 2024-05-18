@@ -1,0 +1,7 @@
+version: "3"
+services:
+  prod:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: elibrary-parser
