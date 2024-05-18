@@ -62,11 +62,6 @@ def parse(page: Page, org_id: int, current_page: int):
             time.sleep(SLEEP_BETWEEN_PAGES_S)
             break
 
-        # has_next_page = bs.find("a", string="Следующая страница")
-        # if not has_next_page:
-        #     print("Нет следующей страницы! Останавливаюсь")
-        #     break
-
         print(f"Записываю страницу {current_page} ...")
 
         publications = bs.select("table#restab tr[id^=arw]")
